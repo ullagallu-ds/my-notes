@@ -1,0 +1,7 @@
+- shell vs command modules
+- ansible roles
+- handlers
+- tasks
+- templates
+- ansible configuration
+- ansible vault
