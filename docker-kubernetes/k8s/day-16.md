@@ -1,0 +1,1 @@
+# EKS Cluster Setup using terraform[27-03-2025]

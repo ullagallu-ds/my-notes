@@ -1,4 +1,4 @@
-# Stateless and Services[kops]
+# Index[kops][11-03-2025]
 - ReplicaSet and Replication Controller
 - Deployment
 - Services[ClusterIP,NodePort,LoadBalancer,ExternalName]

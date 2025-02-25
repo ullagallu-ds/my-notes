@@ -1,4 +1,4 @@
-# Index[configuration&secrets][kops]
+# Index[configuration&secrets][kops][12-03-2025]
 - ConfigMap
 - Secrets
 - ResourceMangement[requests,limits]

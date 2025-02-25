@@ -1,4 +1,4 @@
-# Advance Scheduling[kops]
+# Advance Scheduling Index [kops][17-03-2025]
 - nodeSelector
 - Affinity & Anti Affinity
 - Taints & Tolerations
