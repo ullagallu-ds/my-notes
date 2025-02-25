@@ -10,6 +10,10 @@
 `Node Affinity & Anti-Affinity:` Provides more advanced control over node selection using rules (soft and hard constraints).
 `Taints & Tolerations:` Ensures that only specific Pods can be scheduled on tainted nodes, preventing unwanted scheduling.
 
+
+✅ Must follow the rule	requiredDuringSchedulingIgnoredDuringExecution
+🔵 Tries to follow the rule, but not mandatory	preferredDuringSchedulingIgnoredDuringExecution
+
 **assigning labels**
 kubectl label node <node-name> key=value
 **get labels of nodes**
@@ -65,6 +69,7 @@ The scheduler tries to meet the rule but will still schedule the Pod if no match
 Acts as a soft constraint rather than a strict requirement.
 📝 Note:
 In both types, IgnoredDuringExecution means that if the node labels change after scheduling, the Pod continues to run on the assigned node.
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -125,6 +130,59 @@ spec:
         ports:
         - containerPort: 80
 ```
+
+**Pod Affinity**
+This ensures frontend pods run on the same node as backend pods.
+
+```yaml
+affinity:
+  podAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: app
+              operator: In
+              values:
+                - backend
+        topologyKey: "kubernetes.io/hostname"
+```
+📌 Effect:
+
+The frontend pod will only be scheduled on nodes where a backend pod is already running.
+
+📌 Use Cases:
+
+Low-latency communication (e.g., databases and applications).
+Services that benefit from being on the same node (e.g., caching services).
+
+**Anti-Affinity**
+Ensures web pods do not run on the same node.
+
+```yaml
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: app
+              operator: In
+              values:
+                - web
+        topologyKey: "kubernetes.io/hostname"
+```
+
+📌 Effect:
+
+Each web pod will be scheduled on a different node to improve availability.
+📌 Use Cases:
+
+High availability (avoid all replicas on one node).
+Prevent resource contention (spread workloads evenly).
+
+When to Use What?
+Pod Affinity → When you want pods to run together (e.g., app & database).
+
+### Taints and Tolerations
 
 
 
