@@ -4,7 +4,7 @@ current project developed on nodejs project
 
 we adopt scm as github entrprise for vcs and developer collaboration 
 
-implement the uni test,code coverage measures,docker build, push to ecr and deploy to EKS and automating IT testing
+implement the unit test,code coverage measures,docker build, push to ecr and deploy to EKS and automating IT testing
 
 Jenkins is a CI/CD tool it is open sounrce and have more customization with it's plugins and have large active community
 
@@ -124,6 +124,13 @@ authentication = verifys the user identity
 authrization = determine user permissions
 
 mock security realm
+
+# Day-2[SettingupCI/CD pipeline]
+- parallel
+- environemnt
+- pipeline syntx
+- owasp dependnecy check 
+- unit test
 
 
 
