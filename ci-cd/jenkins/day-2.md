@@ -1,4 +1,0 @@
-- Jenkins Control Plane and Agent Setup
-- Shared Librarys
-- MultiBranch Pipeline
-- Pipeline Setup
