@@ -1,4 +1,117 @@
-Structured Learning Path for Prometheus and Grafana  
+# What is metrics
+Periodical info or historical data of a events to understand about system
+
+scraping = pull the metrics from different sources
+dashbords = visualize the metricss for better understanding
+alerts = fire the alers when the one of the metric at peak
+prometheus = TSDB store the data with time stamps
+
+- pod status how many time pod went to crashloopbackoff thoughout a day and what point of time
+- deployment status
+- application specific metics
+  - Total nof http requests are received by appl at particular time
+  - users signup
+  - users deactivate  
+
+abnormality in a particular time
+
+
+NodeExprter = get nodes info
+KubestateMetrics = k8s object metrics
+/metrics = application level metrics
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 1. Introduction to Prometheus and Grafana  
    - What is Prometheus?  
