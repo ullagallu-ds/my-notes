@@ -20,6 +20,49 @@ NodeExprter = get nodes info
 KubestateMetrics = k8s object metrics
 /metrics = application level metrics
 
+Prometheus main role is to scrape the metrics
+
+Exporters:
+----------
+- Node Exporter
+- KubeStateMetrics[Talks the API server]
+- Custom Metrics[http,no of users login]
+- MySQL Exporter
+
+PromQL
+
+GO into one of the node in the cluster
+
+curl <ip>:9100/metrics
+
+curl <ip>:9100/metrics | grep containers
+
+curl <ip>:9100/metrics | grep containers | grep restart
+
+use chatgpt for promql querys
+
+kubectl run busybox-crash --image=busybox -- /bin/sh -c "exit 1"
+
+Grafana has better utilization and dashboard platform
+Grafana supports multiple datasources
+setup auth and authorization may be integrated with IAM or SSO
+common metrics:
+---------------
+- How many time pod has crashed
+- Configmap created ove the time
+- How many secrets are there
+- cpu,memory and disk utilization,http request, users creation 
+
+Prometheus did 3 things
+- scrape the metrics from targers
+- fire the alerts
+- basic visualiaztion
+- filter the metrics using promql
+
+
+
+
+
 
 
 
