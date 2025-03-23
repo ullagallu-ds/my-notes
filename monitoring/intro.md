@@ -56,13 +56,16 @@ ops engineer implement the tools to monitor applications
 - End user can test application
 # White Box Monotring
 - application internal monitoring
-- CPU,RAM,DISK I/O,Network I/O
+- CPU,RAM,DISK I/O,Network I/O,Network requests
 latency = Time to respond to our requests
+
+p0,p1,p2,p3....
+RCA Root Cause Analysis
 
 Four Golden Signals
 - Latency[response time]
-- Traffic[how much traffic is coming and demand on system]
-- Errors[requests are failed]
+- Traffic[how much traffic is coming to system]
+- Errors[requests are failed][1xxx,2xxx,3xxx,4xxx,5xxx]
 - Saturation[Check the cpu and ram]
 
 - centralized monitoring
@@ -95,3 +98,5 @@ x-axis time y-axis value[data]
 Legend {{name}} dash board creation
 
 monitor if any thing goes wrong raise incident
+
+ec2 service discovery configuration
