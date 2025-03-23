@@ -52,3 +52,46 @@ Observability = collective effective of developers and ops engineers
 developers instrument the application[info,debug,error] and also implement the traces + metrics
 ops engineer implement the tools to monitor applications
 
+# Block Box Monitoring
+- End user can test application
+# White Box Monotring
+- application internal monitoring
+- CPU,RAM,DISK I/O,Network I/O
+latency = Time to respond to our requests
+
+Four Golden Signals
+- Latency[response time]
+- Traffic[how much traffic is coming and demand on system]
+- Errors[requests are failed]
+- Saturation[Check the cpu and ram]
+
+- centralized monitoring
+
+Prometheus monotring tool that stores the data in TSDB we hisotrical and live data we can analyze easily 
+
+pull model have agents and push model does not have agents
+
+up[1m]
+
+I have the server using node exporter ip:9090 monitor the node same add another scrape config now i can monitori application like ip:8080
+
+- job_name: "nodes"
+  static_configs: 
+    - targets : ["172.31.43.191:9100"]
+      labels:
+        node: node-1
+The fourth one is **Summary**.  
+
+### Recap of Prometheus Metrics Types:  
+1. **Counter** – Monotonic increasing value (e.g., request count, error count).  
+2. **Gauge** – Value that can go up and down (e.g., memory usage, active connections).  
+3. **Histogram** – Measures event durations or sizes, providing a count and buckets for distribution.  
+4. **Summary** – Similar to a histogram but provides quantiles (e.g., 95th percentile response time).  
+
+Histograms and Summaries both track distributions, but histograms use predefined buckets, while summaries calculate quantiles dynamically.
+
+x-axis time y-axis value[data]
+
+Legend {{name}} dash board creation
+
+monitor if any thing goes wrong raise incident
