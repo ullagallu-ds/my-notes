@@ -273,3 +273,99 @@ inputs = {
 ---
 
 This guide covers **Terragrunt best practices** for **scalable, maintainable, and secure** infrastructure. Bookmark it for future reference! 🚀
+
+Yes, Terragrunt supports commands similar to Terraform for formatting, validation, and planning. Here's how they work:
+
+### **1. `terragrunt fmt` (Formatting)**
+Formats all Terraform files in the module directory.
+
+```bash
+terragrunt fmt
+```
+
+**Key Features:**
+- Recursively formats `.tf` and `.tfvars` files
+- Checks for HCL syntax compliance
+- Use `-check` flag to verify formatting without changes:
+  ```bash
+  terragrunt fmt -check
+  ```
+
+### **2. `terragrunt validate` (Validation)**
+Validates the Terraform configuration syntax.
+
+```bash
+terragrunt validate
+```
+
+**Key Features:**
+- Checks for errors in Terraform files
+- Does **not** verify cloud provider credentials/resources
+- For deeper validation, use `validate-all`:
+  ```bash
+  terragrunt validate-all
+  ```
+
+### **3. `terragrunt plan` (Execution Plan)**
+Generates an execution plan.
+
+```bash
+terragrunt plan
+```
+
+**Key Features:**
+- Shows what changes will be applied
+- Saves plan to file (useful for CI/CD):
+  ```bash
+  terragrunt plan -out=tfplan
+  ```
+- Use `-detailed-exitcode` for CI compatibility:
+  ```bash
+  terragrunt plan -detailed-exitcode
+  ```
+
+---
+
+### **Extended Workflow Commands**
+
+| Command | Purpose | Example |
+|---------|---------|---------|
+| `terragrunt init` | Initialize working directory | `terragrunt init` |
+| `terragrunt apply` | Apply changes | `terragrunt apply` |
+| `terragrunt destroy` | Destroy infrastructure | `terragrunt destroy` |
+| `terragrunt run-all plan` | Plan across all modules | `terragrunt run-all plan` |
+
+---
+
+### **CI/CD Pipeline Example**
+```bash
+# Format check
+terragrunt fmt -check -recursive
+
+# Validation
+terragrunt validate-all
+
+# Secure planning
+terragrunt plan -input=false -out=tfplan
+terragrunt apply -input=false tfplan
+```
+
+### **Key Differences from Terraform**
+1. **Recursive Operations**:  
+   Use `run-all` to execute commands across dependencies:
+   ```bash
+   terragrunt run-all plan
+   ```
+
+2. **Auto-Init**:  
+   Terragrunt automatically runs `terraform init` if needed.
+
+3. **Working Directory**:  
+   Commands execute in the module directory where `terragrunt.hcl` resides.
+
+For a full list:  
+```bash
+terragrunt --help
+``` 
+
+Would you like me to elaborate on any specific command's advanced usage?
