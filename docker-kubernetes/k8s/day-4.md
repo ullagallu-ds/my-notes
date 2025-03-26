@@ -69,6 +69,11 @@ kubectl top pod resource-limits-example
 
 🚀 **Proper resource management helps avoid performance issues, crashes, and inefficient resource usage in Kubernetes!**
 
+# Metrics Server
+
+Metrics Server is an in-memory metrics server that collects resource usage metrics of pods and nodes. It retrieves CPU and memory usage data from the kubelet on each node and provides it to the Kubernetes API for use by components like Horizontal Pod Autoscaler (HPA) and Vertical Pod Autoscaler (VPA).  
+
+Metrics Server does not store historical data; it only provides real-time metrics. It is lightweight and designed for short-term monitoring within the cluster.
 
 ### **What is HPA (Horizontal Pod Autoscaler) in Kubernetes?**  
 Horizontal Pod Autoscaler (**HPA**) automatically **scales the number of Pods** in a Deployment, ReplicaSet, or StatefulSet based on **CPU, memory, or custom metrics**.  
