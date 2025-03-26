@@ -163,7 +163,7 @@ kubectl config use-context test-context
 - kube-public → Accessible to all users; used for public information.  
 - kube-node-lease → Manages node heartbeats to determine availability.  
 ---
-Example of Init Containers in Kubernetes  
+# Init Containers in Kubernetes  
 
 Init containers are specialized containers that run before the main application container starts. They are used for tasks like setting up configurations, waiting for dependencies, or performing database migrations.  
 
