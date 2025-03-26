@@ -243,9 +243,6 @@ kubectl config use-context test-context
 
 
 
-- K8s Features
-- Namespaces
-
 # My Explanation
 # Why K8s
 My Answer
