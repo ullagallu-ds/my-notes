@@ -71,7 +71,6 @@ Worker nodes are responsible for **running application workloads** and consist o
 - A **networking component** that runs on each node.  
 - Manages **network rules and IP tables** to allow communication between pods and services, handling both internal and external traffic.  
 ---
-### **Conclusion**  
 Kubernetes provides a **powerful orchestration system** that automates workload placement, scaling, configuration management, health checks, and rolling updates, making containerized applications **highly available, resilient, and scalable**.  
 ---
 ### **Kubernetes Features**  
@@ -101,7 +100,6 @@ Kubernetes (K8s) is a **powerful orchestrator** that provides multiple features 
 - Kubernetes allows users to extend its functionality by **creating custom resources** and controllers using **CRDs**.  
 - This enables the integration of new functionalities, such as **custom operators** for managing specific applications.  
 ---
-### **Conclusion**  
 Kubernetes provides a **scalable, resilient, and automated** environment for managing containerized applications, ensuring smooth deployments, efficient resource utilization, and high availability.  
 ---
 
