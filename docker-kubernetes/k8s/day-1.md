@@ -1,4 +1,4 @@
-**Why Kubernetes?**  
+# Why Kubernetes? 
 - Containers provide a great way to package and run applications without dependency issues.  
 - However, containers are ephemeral, meaning they can stop at any time. We need a way to ensure **high availability (HA), scalability, and automatic restarts** when a container fails.  
 - Exposing containers to the outside world using **port mapping** is inefficient because:  
@@ -25,7 +25,7 @@ In Kubernetes, **resiliently** means that your application can handle failures a
 Essentially, **Kubernetes ensures that your system remains operational and performs well, even when failures occur.**
 Kubernetes (K8) is an open-source container orchestration tool that automates application deployment, ensures HA, and scales application.
 ---
-### **Kubernetes Architecture**  
+# Kubernetes Architecture 
 Kubernetes (K8s) follows a **distributed architecture**, meaning it consists of multiple nodes grouped together, forming a **cluster**.  
 A **Kubernetes cluster** consists of:  
 - **Control Plane Nodes** – Responsible for orchestrating and managing the cluster.  
@@ -72,7 +72,7 @@ Worker nodes are responsible for **running application workloads** and consist o
 ---
 Kubernetes provides a **powerful orchestration system** that automates workload placement, scaling, configuration management, health checks, and rolling updates, making containerized applications **highly available, resilient, and scalable**.  
 ---
-### **Kubernetes Features**  
+# Kubernetes Features 
 Kubernetes (K8s) is a **powerful orchestrator** that provides multiple features to efficiently manage containerized workloads.  
 #### **1. Service Discovery & Load Balancing**  
 - Pods are **ephemeral** and their IPs change frequently, making direct communication unreliable.  
@@ -102,7 +102,7 @@ Kubernetes (K8s) is a **powerful orchestrator** that provides multiple features 
 Kubernetes provides a **scalable, resilient, and automated** environment for managing containerized applications, ensuring smooth deployments, efficient resource utilization, and high availability.  
 ---
 
-### What is a Namespace in Kubernetes?  
+# What is a Namespace in Kubernetes?  
 A **Namespace** in Kubernetes is a way to logically isolate resources within a cluster. It allows multiple teams or applications to share a single cluster while keeping their resources separate.  
 
 ### Use Cases of Namespaces  

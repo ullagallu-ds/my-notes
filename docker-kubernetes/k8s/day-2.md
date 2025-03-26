@@ -1,4 +1,4 @@
-### **What is a Pod?**  
+# What is a Pod?
 - A **Pod** is the **smallest deployable unit** in Kubernetes.  
 - It acts as a **wrapper** around one or more **containers** (best practice: **one container per pod**).  
 - Each Pod gets a **unique IP address**, regardless of the number of containers inside it.  

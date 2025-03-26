@@ -205,7 +205,7 @@ metrics:
 ✅ Ensuring **high availability** during peak loads.  
 ✅ Cost optimization by **scaling down** unused resources. 
 
-### **Job Controller in Kubernetes**  
+# Job Controller in Kubernetes 
 
 The **Job Controller** in Kubernetes is responsible for managing **short-lived** workloads that **run a task to completion** instead of continuously running like Deployments or StatefulSets.  
 

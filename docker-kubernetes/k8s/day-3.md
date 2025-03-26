@@ -71,7 +71,7 @@ kubectl get pods -l app=nginx,env=dev
 ``` 
 ---
 
-### **ReplicaSet & ReplicationController in Kubernetes**
+# ReplicaSet & ReplicationController in Kubernetes
 A **ReplicationController (RC)** ensures that a specific number of **identical pod replicas** are always running in a cluster. If a pod fails, it automatically creates a new one.  
 
 🚀 **ReplicationController is now mostly replaced by ReplicaSet, but it’s still supported.**  
@@ -223,7 +223,7 @@ kubectl delete rc my-replicationcontroller
 ```bash
 kubectl get rc my-replicationcontroller -o yaml
 ``` 
-### **What is a Deployment in Kubernetes?**  
+# What is a Deployment in Kubernetes? 
 A **Deployment** in Kubernetes is used to manage and update applications by controlling **ReplicaSets**. It provides **rolling updates, rollbacks, and self-healing** capabilities, making it the preferred choice over ReplicaSets and ReplicationControllers.
 
 A Deployment is a higher-level controller in Kubernetes that manages ReplicaSets and automates application updates, rollbacks, and scaling. It ensures that your application is deployed gradually without downtime.
