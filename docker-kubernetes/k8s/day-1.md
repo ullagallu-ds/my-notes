@@ -164,6 +164,48 @@ kubectl config use-context test-context
 - kube-node-lease → Manages node heartbeats to determine availability.  
 ---
 
+Yes! A **Kubernetes Cluster** consists of **Control Plane Nodes** and **Worker Nodes**.  
+
+### **Control Plane Responsibilities**  
+The **Control Plane** is responsible for decision-making in the cluster. It consists of multiple components that handle different tasks:
+
+1. **Authentication & Authorization**  
+   - The **API Server (kube-apiserver)** manages authentication and authorization.
+   - It verifies if users, services, or components have the right permissions to access resources.
+
+2. **Manifest File Validation**  
+   - The API Server validates incoming Kubernetes YAML manifests before applying them.
+
+3. **Scheduling**  
+   - The **kube-scheduler** decides which worker node should run a Pod based on resource availability, constraints, and affinity rules.
+
+4. **Storing Cluster Information**  
+   - **etcd** (a distributed key-value store) stores all cluster data, including configuration, state, and resource information.
+
+5. **Controller for HA, Scalability, and Self-Healing**  
+   - The **kube-controller-manager** runs controllers that ensure high availability and scalability:
+     - **Node Controller**: Detects failed nodes and reschedules Pods.
+     - **Replication Controller**: Ensures the desired number of Pods are always running.
+     - **Endpoint Controller**: Updates Service and Pod mappings.
+     - **Job Controller**: Manages batch jobs and cleanup.
+     - **Horizontal Pod Autoscaler (HPA)**: Scales Pods based on CPU/memory usage.
+
+---
+
+### **Worker Node Responsibilities**  
+Worker Nodes **execute workloads** and run application containers.
+
+| **Component**  | **Responsibility** |
+|---------------|----------------|
+| **Kubelet** | Ensures containers in Pods are running and healthy. |
+| **Container Runtime** | Runs containers (Docker, containerd, CRI-O). |
+| **Kube Proxy** | Handles networking, service discovery, and load balancing. |
+
+---
+
+### **Summary**
+- The **Control Plane** is the brain of Kubernetes, making all the decisions.
+- The **Worker Nodes** execute those decisions and run application workloads.
 
 
 
