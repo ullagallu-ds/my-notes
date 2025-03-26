@@ -1,4 +1,60 @@
-# **Resource Management in Kubernetes (Requests & Limits)**  
+# Metric Server in Kubernetes
+**Metric Server** is a Kubernetes component that collects resource usage data (CPU and memory) from the **Kubelets** running on worker nodes and makes this data available through the Kubernetes **Metrics API**.
+
+### **Purpose of Metric Server**
+1. **Enables Horizontal Pod Autoscaler (HPA):**  
+   - HPA scales pods based on CPU/memory usage.
+   - Metric Server provides real-time resource consumption data required for autoscaling.
+
+2. **Supports Vertical Pod Autoscaler (VPA):**  
+   - VPA adjusts pod resource requests automatically based on real usage.
+
+3. **Provides `kubectl top` Commands:**  
+   - View live CPU and memory usage of pods/nodes using:
+     ```sh
+     kubectl top pod
+     kubectl top node
+     ```
+
+### **How It Works**
+1. **Kubelet** collects CPU/memory usage from the **cAdvisor** (Container Advisor).
+2. **Metric Server** fetches this data via the Kubelet API.
+3. The **Metrics API** exposes this data for tools like `kubectl top` and autoscalers.
+
+### **Metric Server vs Prometheus**
+| Feature          | Metric Server            | Prometheus                  |
+|-----------------|-------------------------|-----------------------------|
+| Purpose         | Real-time CPU/Memory metrics | Full observability (logs, traces, events, etc.) |
+| Data Retention  | Short-term (few minutes) | Long-term (stored in TSDB) |
+| Used For        | HPA, VPA, `kubectl top`  | Monitoring, alerting, dashboards |
+| Collection Mode | Pull-based from Kubelet  | Pull-based using PromQL queries |
+
+### **Installing Metric Server**
+If it’s not installed in your cluster, you can deploy it using:
+```sh
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
+
+After installation, check if it's working:
+```sh
+kubectl get apiservices | grep metrics
+```
+If you see `v1beta1.metrics.k8s.io`, Metric Server is running.
+
+### **Common Issues**
+1. **TLS errors (`x509 certificate signed by unknown authority`)**
+   - Fix: Add `--kubelet-insecure-tls` to Metric Server arguments.
+   
+2. **Pods stuck in `Pending` due to lack of resources**
+   - Fix: Increase cluster resources.
+
+### **Conclusion**
+Metric Server is crucial for autoscaling and monitoring pod/node resource usage in Kubernetes but is not a replacement for full observability tools like Prometheus.
+
+Metrics Server does not store historical data; it only provides real-time metrics. It is lightweight and designed for short-term monitoring within the cluster.
+---
+
+# Resource Management in Kubernetes (Requests & Limits) 
 
 Kubernetes allows **resource management** for CPU and memory to **ensure fair allocation** among containers. This is done using **requests** and **limits**.
 
@@ -56,12 +112,7 @@ kubectl top pod resource-limits-example
 🚀 **Proper resource management helps avoid performance issues, crashes, and inefficient resource usage in Kubernetes!**
 
 ---
-# Metrics Server
-Metrics Server is an in-memory metrics server that collects resource usage metrics of pods and nodes. It retrieves CPU and memory usage data from the kubelet on each node and provides it to the Kubernetes API for use by components like Horizontal Pod Autoscaler (HPA) and Vertical Pod Autoscaler (VPA).  
-
-Metrics Server does not store historical data; it only provides real-time metrics. It is lightweight and designed for short-term monitoring within the cluster.
-
-### What is HPA (Horizontal Pod Autoscaler) in Kubernetes?
+# What is HPA (Horizontal Pod Autoscaler) in Kubernetes?
 Horizontal Pod Autoscaler (**HPA**) automatically **scales the number of Pods** in a Deployment, ReplicaSet, or StatefulSet based on **CPU, memory, or custom metrics**.  
 
 ### **Key Features of HPA:**  
