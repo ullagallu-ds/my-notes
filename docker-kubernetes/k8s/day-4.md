@@ -547,4 +547,3 @@ kubectl delete -f job.yaml
 kubectl delete hpa nginx-deployment
 ```
 ---
-# StatefulSet
