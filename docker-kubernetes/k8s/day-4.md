@@ -2,16 +2,12 @@
 
 Kubernetes allows **resource management** for CPU and memory to **ensure fair allocation** among containers. This is done using **requests** and **limits**.
 
----
-
 ## **1️⃣ What are Requests and Limits?**
 
 | **Parameter**  | **Definition** | **Purpose** |
 |---------------|--------------|-------------|
 | **Requests** | Minimum CPU/Memory a container is guaranteed. | Ensures the container gets at least this much. |
 | **Limits** | Maximum CPU/Memory a container can use. | Prevents the container from exceeding this limit. |
-
----
 
 ## **2️⃣ Example of CPU & Memory Requests/Limits**
 ```yaml
@@ -37,8 +33,6 @@ spec:
 - `limits.memory: "128Mi"` → The container **cannot exceed** 128MB of memory.  
 - `limits.cpu: "500m"` → The container **cannot use more** than 500 millicores (0.5 vCPU).  
 
----
-
 ## **3️⃣ What Happens If a Container Exceeds Requests or Limits?**  
 
 | **Scenario** | **Effect on CPU** | **Effect on Memory** |
@@ -47,9 +41,6 @@ spec:
 | **Exceeds Limits** | No effect (Kubernetes does not enforce CPU limits strictly). | Container is **Killed with OOM (Out of Memory) Error**. |
 
 **💡 CPU overuse leads to throttling, while Memory overuse leads to termination.**
-
----
-
 ## **4️⃣ Checking Resource Usage**
 ```bash
 kubectl describe pod resource-limits-example
@@ -57,25 +48,20 @@ kubectl describe pod resource-limits-example
 ```bash
 kubectl top pod resource-limits-example
 ```
-
----
-
 ## **5️⃣ Best Practices**
 ✔️ **Set Requests** to ensure the Pod gets enough resources.  
 ✔️ **Set Limits** to prevent a single Pod from consuming all resources.  
 ✔️ **Use Monitoring** (Prometheus, Metrics Server) to track resource usage.  
 
----
-
 🚀 **Proper resource management helps avoid performance issues, crashes, and inefficient resource usage in Kubernetes!**
 
+---
 # Metrics Server
-
 Metrics Server is an in-memory metrics server that collects resource usage metrics of pods and nodes. It retrieves CPU and memory usage data from the kubelet on each node and provides it to the Kubernetes API for use by components like Horizontal Pod Autoscaler (HPA) and Vertical Pod Autoscaler (VPA).  
 
 Metrics Server does not store historical data; it only provides real-time metrics. It is lightweight and designed for short-term monitoring within the cluster.
 
-### **What is HPA (Horizontal Pod Autoscaler) in Kubernetes?**  
+### What is HPA (Horizontal Pod Autoscaler) in Kubernetes?
 Horizontal Pod Autoscaler (**HPA**) automatically **scales the number of Pods** in a Deployment, ReplicaSet, or StatefulSet based on **CPU, memory, or custom metrics**.  
 
 ### **Key Features of HPA:**  
@@ -266,9 +252,7 @@ kubectl logs -l job-name=example-job
 ```bash
 kubectl delete job example-job
 ```
-
 ---
-
 ### **Use Cases of Jobs in Kubernetes**
 ✔️ **Data Processing:** Running scripts to process logs or database records.  
 ✔️ **Batch Tasks:** Sending bulk emails, generating reports.  
@@ -276,21 +260,17 @@ kubectl delete job example-job
 ✔️ **One-Time Migrations:** Running database schema updates.  
 ✔️ **Load Testing:** Generating traffic for performance testing.  
 
-### **CronJob in Kubernetes**  
+# CronJob in Kubernetes 
 
 A **CronJob** in Kubernetes is used to **schedule and run Jobs at specific intervals**, similar to Linux cron jobs. It automates periodic or recurring tasks.  
-
 ---
-
 ### **Key Features of CronJob**  
 ✅ Runs jobs at **fixed schedules** (daily, hourly, weekly, etc.)  
 ✅ Uses **cron expressions** to define schedules  
 ✅ Automatically **creates and cleans up Jobs**  
 ✅ Supports **parallelism and retries**  
 ✅ Useful for **backups, log rotations, and report generation**  
-
 ---
-
 ### **Example 1: Basic CronJob (Runs Every Minute)**  
 ```yaml
 apiVersion: batch/v1
@@ -310,7 +290,6 @@ spec:
           restartPolicy: Never
 ```
 🔹 **This CronJob prints "Hello from CronJob!" every minute.**  
-
 ---
 
 ### **Example 2: CronJob Running Every Day at Midnight**  
@@ -375,9 +354,7 @@ spec:
           restartPolicy: OnFailure
 ```
 🔹 **This CronJob deletes log files at 3 AM daily and removes jobs after 1 hour.**  
-
 ---
-
 ### **Check and Manage CronJobs**  
 ✅ **List CronJobs:**  
 ```bash
@@ -399,9 +376,7 @@ kubectl create job --from=cronjob/hello-cron manual-run
 ```bash
 kubectl delete cronjob hello-cron
 ```  
-
 ---
-
 ### **Use Cases for CronJobs in Kubernetes**  
 ✔️ **Automated Backups** (Database, Logs, File storage)  
 ✔️ **Periodic Maintenance Tasks** (Cleanup old data, Delete logs)  
@@ -417,9 +392,7 @@ In this exercise, you will:
 2. Expose it as a service.  
 3. Apply **HPA** to scale based on CPU usage.  
 4. Use a **Job Controller** to generate load and trigger autoscaling.  
-
 ---
-
 ## **Step 1: Create a Deployment**  
 Create a file `deployment.yaml`:  
 
@@ -447,24 +420,19 @@ spec:
           limits:
             cpu: "500m"
 ```
-
 Apply the Deployment:  
 ```bash
 kubectl apply -f deployment.yaml
 ```
-
 ---
-
 ## **Step 2: Expose the Deployment as a Service**  
 ```bash
 kubectl expose deployment nginx-deployment --type=ClusterIP --port=80 --target-port=80
 ```
-
 Verify the service:  
 ```bash
 kubectl get svc
 ```
-
 ---
 
 ## **Step 3: Apply HPA to Autoscale Based on CPU Usage**  
