@@ -21,13 +21,12 @@
 - Services
   - ClusterIP
   - NodePort
-  - ExternalName
-  - He
+  - LoadBalancer
 - CoreDNS pods
 - kube-dns service
 # Day-6[29]
 - StatefulSet
-- Headless
+- Headless Service
 - Storage Orchestration
  - Static Volume Provisioning
  - Dynamic Volume Provisioning
@@ -39,14 +38,14 @@
 # Day-8[31]
 - Instana Yaml Definition and Helm Charts Preparation
 # Day-9[1]
-- Service Account
-- RBAC
-- Network Policies
-# Day-10[2]
-- LoadBalancer
+- ExternalName Service
 - Annotations
 - Ingress
 - External DNS
+# Day-10[2]
+- Service Account
+- RBAC
+- Network Policies
 # Day-11[3]
 - NodeSelector
 - Affinity&Anti-Affinity
