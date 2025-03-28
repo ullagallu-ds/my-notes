@@ -37,7 +37,6 @@
 
 
 # Day-2
-
 ---
 
 ### **1. Greetings & Small Talk**  
@@ -97,5 +96,101 @@
 - **See you around!** (When you expect to see someone again)  
 - **Take it easy!** (A relaxed way to say goodbye)  
 - **Talk to you soon!** (When you plan to talk to someone again soon)  
+
+---
+
+# Day-3
+---
+
+### **1. Greetings & Casual Talk**  
+- **How’s your day going?** (To ask about someone’s day)  
+- **What’s going on?** (Similar to "What’s up?")  
+- **It’s nice to meet you!** (When meeting someone for the first time)  
+- **It’s a pleasure to meet you!** (More formal way to say "Nice to meet you")  
+- **How’s everything?** (A general way to ask how things are)  
+- **Long time, no see!** (When you haven’t seen someone for a while)  
+
+---
+
+### **2. Common Responses**  
+- **Not much, just the usual.** (When nothing new is happening)  
+- **Can’t complain!** (A way to say things are going fine)  
+- **I’ve been busy lately.** (If you’ve had a lot of work or tasks)  
+- **That’s life!** (When something disappointing happens)  
+- **It is what it is.** (When you accept a situation as it is)  
+- **No worries!** (Instead of "It’s okay" or "Don’t worry about it")  
+- **It happens.** (To comfort someone after a mistake)  
+
+---
+
+### **3. Asking for Help & Offering Help**  
+- **Can you give me a hand?** (To ask for help)  
+- **Could you do me a favor?** (To ask for assistance)  
+- **Would you mind helping me?** (Polite way to ask for help)  
+- **Let me know if you need anything.** (Offering help)  
+- **I’d be happy to help.** (When offering assistance)  
+- **I’ve got your back.** (Telling someone you will support them)  
+- **Anytime!** (To say you’re always ready to help)  
+
+---
+
+### **4. Expressing Agreement & Disagreement**  
+- **You’re absolutely right.** (To strongly agree)  
+- **I couldn’t have said it better.** (Strongly agreeing)  
+- **You have a point.** (When you partially agree)  
+- **I don’t think so.** (Polite way to disagree)  
+- **I see your point, but…** (To politely disagree)  
+- **I beg to differ.** (A formal way to disagree)  
+
+---
+
+### **5. Giving & Asking for Opinions**  
+- **What are your thoughts on this?** (Asking someone’s opinion)  
+- **I’d say…** (When giving your opinion)  
+- **If you ask me…** (When giving a personal opinion)  
+- **In my opinion…** (Formal way to express an opinion)  
+- **From my perspective…** (To share your point of view)  
+- **To be honest…** (When giving a frank opinion)  
+- **That’s just my two cents.** (When giving a personal opinion humbly)  
+
+---
+
+### **6. Making Plans & Suggestions**  
+- **What’s the plan?** (Asking about the schedule)  
+- **Let’s catch up soon!** (Suggesting to meet or talk later)  
+- **Are you free this weekend?** (To check someone’s availability)  
+- **How about dinner tomorrow?** (Making a suggestion)  
+- **Let’s go for it!** (Encouraging someone to do something)  
+- **Why not?** (Agreeing to a suggestion)  
+
+---
+
+### **7. Apologizing & Responding to Apologies**  
+- **I didn’t mean to upset you.** (When you accidentally hurt someone)  
+- **I apologize for that.** (Formal way to say sorry)  
+- **That was my mistake.** (Taking responsibility)  
+- **No hard feelings?** (Asking if everything is okay after a disagreement)  
+- **Don’t worry about it.** (To say it’s okay)  
+- **It’s all good!** (A casual way to forgive someone)  
+
+---
+
+### **8. Expressing Surprise & Excitement**  
+- **No way!** (Expressing disbelief)  
+- **Are you serious?** (To check if something is true)  
+- **That’s amazing!** (Showing excitement)  
+- **I can’t believe it!** (When something is surprising)  
+- **You’ve got to be kidding me!** (Expressing shock)  
+- **That’s unbelievable!** (For a surprising situation)  
+
+---
+
+### **9. Ending a Conversation Politely**  
+- **I should get going.** (When you need to leave)  
+- **Let’s talk later.** (Ending a conversation)  
+- **I’ll catch you later!** (Casual way to say goodbye)  
+- **Have a great day!** (A friendly farewell)  
+- **Take care!** (A caring way to say goodbye)  
+- **Stay in touch!** (To keep communicating)  
 
 ---
