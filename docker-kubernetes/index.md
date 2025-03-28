@@ -22,7 +22,7 @@
   - ClusterIP
   - NodePort
   - ExternalName
-  - Headless Service
+  - He
 - CoreDNS pods
 - kube-dns service
 # Day-6[29]
