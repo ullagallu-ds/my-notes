@@ -45,6 +45,113 @@ spec:
 curl http://backend-service:80
 ```
 
+# SD
+### **How Service Discovery Works in Kubernetes**
+Kubernetes provides **service discovery** through the built-in **DNS resolution and label-based selection**.
+
+#### **1️⃣ How a Service Finds & Routes Traffic to Pods**
+- Each **Service** has a **selector** that matches Pods based on labels.
+- Kubernetes uses **Endpoints** to track which Pods belong to the Service.
+- When a new Pod with matching labels starts, it's **automatically added** to the Service.
+- When a Pod is deleted or crashes, it's **automatically removed** from the Service.
+
+✅ **Example Service YAML**  
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: my-app   # Only selects Pods with this label
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+```
+➡️ Any **Pod** with **`app: my-app`** will be part of this service.
+
+---
+
+### **2️⃣ How Kubernetes Tracks & Updates Pods in a Service**
+- **Kube-Proxy** handles traffic routing between Services and Pods.
+- Kubernetes maintains an **Endpoints** object (`kubectl get endpoints`) that lists **all active Pod IPs** for a given Service.
+- When a Pod is deleted or fails:
+  - Kubernetes detects it.
+  - The Pod's IP is **removed** from the **Endpoints list**.
+- When a new matching Pod is created:
+  - It's **automatically added** to the Service’s **Endpoints list**.
+
+✅ **Check the Endpoints Manually**
+```sh
+kubectl get endpoints my-service
+```
+Output:
+```
+NAME         ENDPOINTS            AGE
+my-service   10.244.1.2:80,10.244.1.3:80   5m
+```
+If a Pod crashes or is deleted, its IP **disappears** from this list.
+
+---
+
+### **3️⃣ How DNS Resolves a Service Name**
+- Kubernetes creates an **internal DNS entry** for each Service.  
+- Any Pod inside the cluster can access the Service using its **name**.  
+- Example: `curl http://my-service`  
+- This works because Kubernetes runs **CoreDNS**, which resolves Service names to **their ClusterIP or Pod IPs**.
+
+✅ **Check the DNS Resolution** from a Pod:
+```sh
+kubectl exec -it ubuntu-test -- nslookup my-service
+```
+
+---
+
+### **4️⃣ When a Pod is Added or Removed**
+| **Event**         | **Action** |
+|------------------|-----------|
+| Pod starts      | Added to Service **(Endpoints list updates automatically)** |
+| Pod crashes     | Removed from Service |
+| Pod deleted     | Removed from Service |
+| New Pod starts  | Added to Service |
+
+---
+
+### **📌 Summary**
+✔ **Service Discovery is Automatic** in Kubernetes.  
+✔ Services use **label selectors** to dynamically track Pods.  
+✔ Kubernetes **updates Endpoints** whenever Pods start or stop.  
+✔ Internal DNS (`my-service`) allows **Pods to find each other** easily.  
+
+---
+
+### **❓ Want to Try It?**
+- Run this command **before deleting a Pod**:
+  ```sh
+  kubectl get endpoints my-service
+  ```
+- Then **delete a Pod**:
+  ```sh
+  kubectl delete pod <pod-name>
+  ```
+- Run the **endpoints check again**:
+  ```sh
+  kubectl get endpoints my-service
+  ```
+You'll see how Kubernetes **removes** the deleted Pod automatically! 🚀
+
+---
+✅ Service and Pod DNS records are dynamically created in CoreDNS
+✅ No static files store these records—they exist in memory and change as Pods/Services come and go
+✅ You can check the Kubernetes API for the Service and its Endpoints, but not the actual DNS records
+✅ CoreDNS queries the API whenever a lookup is made, so records are always up to date
+
+---
+🔹 You can't "see" static DNS records, because they are not stored anywhere—CoreDNS generates them on the fly.
+🔹 Instead, check Services, Endpoints, and test name resolution with nslookup or dig.
+🔹 CoreDNS fetches records from the Kubernetes API dynamically, so records are always current.
+
 ---
 
 ## **2️⃣ NodePort (Exposes a Service Outside the Cluster)**
