@@ -228,6 +228,24 @@ A **Deployment** in Kubernetes is used to manage and update applications by cont
 
 A Deployment is a higher-level controller in Kubernetes that manages ReplicaSets and automates application updates, rollbacks, and scaling. It ensures that your application is deployed gradually without downtime.
 
+A Deployment in Kubernetes is a resource used to manage and control the rollout of application updates in a cluster. It provides a declarative way to define, update, and scale application pods.
+
+Ensures Desired State – Maintains the number of running replicas.
+
+Rolling Updates – Updates Pods gradually without downtime.
+
+Rollback Mechanism – Reverts to the previous stable version if an update fails.
+
+Scaling – Allows horizontal scaling (increasing/decreasing replicas).
+
+Self-healing – Recreates failed Pods automatically.
+
+How It Works:
+The Deployment Controller ensures the specified number of Pods are running.
+
+If an update is triggered (e.g., a new container image), Kubernetes gradually replaces old Pods with new ones.
+
+It continuously monitors and self-heals Pods if they fail.
 
 Why Deployment Over ReplicaSet?
 ReplicaSet ensures that a specified number of pod replicas are running but does not control application releases.
