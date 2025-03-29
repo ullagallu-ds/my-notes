@@ -35,6 +35,8 @@
 - ConfigMap
 - Secrets
 - Probes
+- Resource Quotas
+- Limit Ranges
 # Day-8[31]
 - Instana Yaml Definition and Helm Charts Preparation
 # Day-9[1]
@@ -42,6 +44,8 @@
 - Annotations
 - Ingress
 - External DNS
+- HV
+- ESO
 # Day-10[2]
 - Service Account
 - RBAC
@@ -51,21 +55,17 @@
 - Affinity&Anti-Affinity
 - Taints&Tolerations
 # Day-12[4]
-- Resource Quotas
-- Limit Ranges
-- HV
-- ESO
-# Day-13[5]
 - Monitoring[Proemtheus&Grafana]
 - NodeExporter
 - ec2 labels to dynamically monitor nodes
-# Day-14[6]
+# Day-13[5]
 - Logging
 - Daemonset
 - hostPath
-# Day-15[7]
+# Day-14[6]
 - EKS Cluster Creation with Terraform
-# Day-16[8]
+# Day-15[7]
 - ArgoCD
-# Day-17[9]
+# Day-16[8]
 - EKS Cluster Upgradation with Terraform without downtime
+
