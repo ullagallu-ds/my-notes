@@ -24,48 +24,48 @@
   - LoadBalancer
 - CoreDNS pods
 - kube-dns service
-# Day-6[29]
+# Day-6[30]
 - StatefulSet
 - Headless Service
 - Storage Orchestration
  - Static Volume Provisioning
  - Dynamic Volume Provisioning
 - Volume Access Modes and Reclaim Policy
-# Day-7[30]
+# Day-7[31]
 - ConfigMap
 - Secrets
 - Probes
 - Resource Quotas
 - Limit Ranges
-# Day-8[31]
+# Day-8[2]
 - Instana Yaml Definition and Helm Charts Preparation
-# Day-9[1]
+# Day-9[3]
 - ExternalName Service
 - Annotations
 - Ingress
 - External DNS
 - HV
 - ESO
-# Day-10[2]
+# Day-10[4]
 - Service Account
 - RBAC
 - Network Policies
-# Day-11[3]
+# Day-11[5]
 - NodeSelector
 - Affinity&Anti-Affinity
 - Taints&Tolerations
-# Day-12[4]
+# Day-12[6]
 - Monitoring[Proemtheus&Grafana]
 - NodeExporter
 - ec2 labels to dynamically monitor nodes
-# Day-13[5]
+# Day-13[7]
 - Logging
 - Daemonset
 - hostPath
-# Day-14[6]
+# Day-14[8]
 - EKS Cluster Creation with Terraform
-# Day-15[7]
+# Day-15[9]
 - ArgoCD
-# Day-16[8]
+# Day-16[10]
 - EKS Cluster Upgradation with Terraform without downtime
 
