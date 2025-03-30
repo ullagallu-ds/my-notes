@@ -22,3 +22,49 @@
     - AWS Secrets Manager / SSM → For AWS-based infrastructure.
     - Environment variables → For local development.
     - Terraform Cloud Vault → If using Terraform Cloud.
+
+
+# Terraform folder structure to project management
+
+- Apply Infra code reusable by implement modules[DRY principle]
+- Store the state file in remote store and implment dynamodb locking avoid parallel execution
+- encrypt the infrastructure by using KMS key
+- Don't plance any sensitive data by using AWS secret store or HashiCorp Vault
+
+1. expense-project/
+- Modules/
+  - vpc/
+  - sg/
+- environemtns
+  - dev/
+    - vpc/
+    - sg/
+  - prod/
+    - vpc/
+    - sg/
+- each and every module intialization you to maintain provider.tf in environments
+- In this folder structure I observer few things have more repeat code managing depecies some what difficult for example i want out puts of vpc I need to store vpc related out values in aws parameter store and get the values into sg same way remainning also
+
+2. expense-project/
+- Modules/
+- environments/
+  - dev/
+    - main.tf
+    - terraform.tfvars
+    - outputs.tf
+    - variables.tf
+  - prod/
+    - main.tf
+    - terraform.tfvars
+    - outputs.tf
+    - variables.tf
+- All modules are defined in files some what it will confuse us and it's like more attention required
+
+3. expense-project/
+- Modules/
+- Modules call
+- using workspaces to manage differnt environemnts more careful and attention required
+
+4. 
+
+ 
