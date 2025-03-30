@@ -27,8 +27,15 @@ We need to run these tests continously to findout new issues and mitigate them
 - create ec2 instance[t3a.xlarge with 100GB]
 - install docker ,kubeadm,java 8,Jenkins, Install jq,jc,pip3
 
-github.com/sidd-harth/devsecops-k8s-demo
+[github.com/sidd-harth/devsecops-k8s-demo]
 
 Jenkins is a opensource automation tool which uses plugins to build & test your project code continuously 
 
 install the plugins using remote api
+
+
+- pre-github hooks prevent us push senesitve data into githubrepo
+- Install talisman in developer workstation
+
+kubesec.io
+
