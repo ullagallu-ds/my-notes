@@ -1,7 +1,3 @@
-Here are **detailed notes** and **hands-on labs** for **Service Account, RBAC, and Network Policies** in Kubernetes.  
-
----
-
 # **1️⃣ Service Account**
 ### **What is a Service Account?**
 - A **Service Account** in Kubernetes is used for **authentication** when pods interact with the **Kubernetes API server**.  
