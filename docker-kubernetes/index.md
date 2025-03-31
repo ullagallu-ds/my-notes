@@ -51,9 +51,10 @@
 - RBAC
 - Network Policies
 # Day-11[5]
-- NodeSelector
-- Affinity&Anti-Affinity
 - Taints&Tolerations
+- NodeSelector
+- Affinity & Anti-Affinity
+- Pod Affinity & Anti-Affinity
 # Day-12[6]
 - Monitoring[Proemtheus&Grafana]
 - NodeExporter
