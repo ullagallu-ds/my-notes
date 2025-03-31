@@ -192,8 +192,20 @@ spec:
 ---
 
 # **5️⃣ HashiCorp Vault**
-### **What is HashiCorp Vault?**
-- **HashiCorp Vault** is a tool for **securely storing and managing secrets** such as API keys, passwords, and TLS certificates.  
+You're absolutely right! Storing secrets in Git is a bad practice because:
+❌ Security Risk: Secrets in Git can be exposed if the repo is compromised.
+❌ No Encryption: Kubernetes Secrets are base64-encoded, not encrypted.
+❌ Access Control Issues: Anyone with repo access can see secrets.
+
+
+✅ 1️⃣ Use HashiCorp Vault / AWS Secrets Manager (Best Practice)
+Instead of hardcoding secrets in Kubernetes manifests, use a secret management tool like Vault or AWS Secrets Manager.
+
+🔹 Why?
+✔️ Encryption at Rest & in Transit
+✔️ Fine-Grained Access Control (IAM, Policies)
+✔️ Automated Secret Rotation
+✔️ Audit Logging
 
 ---
 
