@@ -34,3 +34,13 @@ Traditional push based approach have some flaws
 Only change is in devops we push the change to cluster in gitops changes were pulled by the operator
 
 **pull vs push**
+
+
+- install argocd in k8s cluster
+- install argocd cli in machine where kubectl is there
+- argocd login ip address of svc
+  argocd app list
+  argocd cluster list
+  proj list
+- kubectl get applications -n argocd
+- argocd proj get special-project -o yaml
