@@ -12,7 +12,19 @@ Let's go through each with **detailed explanations and examples**.
 
 # **1. ConfigMap**
 ### **What is a ConfigMap?**
-A **ConfigMap** is used to store **non-sensitive configuration data** in key-value pairs. It allows you to decouple configuration details from the application code, making deployments **more flexible** and **easier to manage**.
+A ConfigMap is a Kubernetes resource used to store non-sensitive configuration data in key-value pairs, decoupling configuration from application code.
+
+**What it does:**
+Holds configuration settings (e.g., app settings, environment variables) that pods can consume.
+Keeps configuration portable and reusable across environments (dev, prod, etc.).
+**How it works:**
+Defined as a YAML/JSON object with data or binaryData fields.
+Mounted into pods as environment variables, command-line arguments, or files in a volume.
+
+**Use case:**
+Store an app’s settings (e.g., API endpoints, feature flags) without hardcoding them in the container image.
+**Security tip:**
+Don’t use ConfigMaps for sensitive data (e.g., passwords)—use Secrets instead.
 
 ---
 
@@ -105,7 +117,20 @@ spec:
 
 # **2. Secrets**
 ### **What is a Secret?**
-A **Secret** is used to store **sensitive data** such as **passwords, API keys, and database credentials** in an **encoded format (Base64)**. This prevents exposing sensitive information in plain text inside Pod definitions.
+A Secret is similar to a ConfigMap but designed for sensitive data like passwords, API keys, or certificates.
+
+**What it does:**
+Stores confidential information securely (encoded in base64 by default, optionally encrypted at rest).
+Provides a way to pass sensitive data to pods without exposing it in plaintext.
+**How it works:**
+Created with kubectl or YAML, stored in the cluster’s etcd.
+Mounted as environment variables or files in a pod, just like ConfigMaps.
+Kubernetes can encrypt Secrets at rest (if configured).
+
+**Use case:**
+Pass a database password to an app without exposing it in the pod spec.
+**Security tip:**
+Enable encryption at rest for Secrets (via Kubernetes encryption config) and restrict access with RBAC.
 
 ---
 
@@ -299,6 +324,18 @@ This is useful in **multi-tenant clusters** where multiple teams share the same 
 ✅ Restricts **number of pods, services, and volumes** that can be created.  
 ✅ Helps in **fair resource distribution** across teams and applications.  
 
+**What it does:**
+Prevents a single team or app from monopolizing cluster resources.
+Enforces resource budgets per namespace.
+**How it works:**
+Applied at the namespace level, specifying limits for resources like requests.cpu, limits.memory, or counts of pods, PVCs, etc.
+Pods can’t be created if they’d exceed the quota.
+
+**Use case:**
+In a multi-tenant cluster, ensure fair resource sharing between teams.
+**Tip:**
+Pair with Limit Ranges for finer control (see below).
+
 ---
 
 ### **Example 1: Restricting CPU and Memory Usage**  
@@ -359,6 +396,20 @@ spec:
 A **LimitRange** defines **default, minimum, and maximum resource requests and limits** for individual **pods and containers** inside a namespace.  
 
 Unlike **ResourceQuota**, which controls the total namespace-level resource allocation, **LimitRange** applies restrictions on a **per-pod** or **per-container** basis.
+
+A Limit Range sets default, minimum, and maximum resource constraints (CPU, memory) for individual pods or containers within a namespace.
+
+**What it does:**
+Enforces resource boundaries on a per-object basis (unlike Resource Quotas, which are namespace-wide).
+Provides defaults if a pod spec omits resource requests/limits.
+**How it works:**
+Applied to a namespace, defining ranges for requests and limits.
+Automatically injects defaults into pods if unspecified.
+
+**Use case:**
+Prevent a pod from requesting too few resources (underperforming) or too many (overconsuming).
+**Tip:**
+Use with Resource Quotas to cap both individual and total usage.
 
 ---
 
@@ -477,5 +528,12 @@ spec:
 ✅ **Use ResourceQuotas** to **restrict total resource usage** at the namespace level.  
 ✅ **Use LimitRanges** to **enforce per-container limits and defaults**.  
 ✅ Together, they **prevent overuse**, **ensure fairness**, and **improve cluster efficiency**.  
+
+
+**ConfigMap:** Stores the app’s settings (e.g., log_level=debug).
+**Secret:** Holds the app’s database password.
+**Probes:** Ensure the app restarts if it crashes and only serves traffic when ready.
+**Resource Quota:** Limits the namespace to 4 CPU cores and 8GB memory.
+**Limit Range:** Ensures each container requests at least 0.2 CPU and caps at 1 CPU.
 
 ---
