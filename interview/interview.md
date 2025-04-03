@@ -7,7 +7,7 @@
 6. How do you implement a CI/CD pipeline using Ansible
 7. You have ansible playbook and it was saving specific host how do you troubleshoot that issue
 8. What is the difference between terraform apply and terrafor apply -auto-approve
-9. How do you handle depemdecies between terraform resources
+9. How do you handle dependencies between terraform resources
 # Interview-2
 1. How to check the logs of pods and containers in k8s
 2. Difference between statefulset and deployment
@@ -53,7 +53,6 @@
 26. How do you trouble shoot high CPU usage in pod
 27. How do you enforce security policies in aws
 28. How do you handle disaster recovery in devops
-29. 
 
 
 
