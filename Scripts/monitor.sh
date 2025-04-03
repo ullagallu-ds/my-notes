@@ -36,7 +36,3 @@ log_system_metrics
 # Print a success message
 echo "System metrics logged in $LOG_FILE"
 
-if (( $(echo "$cpu_usage > 80" | bc -l) )); then
-    echo "High CPU usage detected: $cpu_usage%" | mail -s "CPU Alert" sivaram0434@gmail.com
-fi
-
