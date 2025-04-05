@@ -25,3 +25,22 @@ I have over 4 years of exp in aws and devops implment security practices in devo
 
 # Remembering points
 - Currently, my role demands a different set of tools, but I am good with the tools I have worked on. I can quickly learn and adapt to new technologies as required.
+
+
+
+
+
+
+
+# Tell me about yourself
+
+Hi, I'm Sivaramakrishna, a DevOps Engineer with 4 years of hands-on experience at Vaayuja Info Solutions. I specialize in automating build and deployment processes for applications running on Amazon EKS, and I’ve been actively involved in setting up CI/CD pipelines for various types of applications.
+
+As part of my role, I integrate security tools into the pipeline to catch vulnerabilities early in the development cycle. I manage infrastructure using Terraform, and have strong hands-on experience with tools like Docker, Kubernetes, AWS, Jenkins, GitHub Actions, and Helm.
+
+I’ve also implemented robust monitoring and logging solutions using Prometheus, Grafana, CloudWatch, and the Elastic Stack to ensure application and infrastructure reliability. I actively provide on-call support and collaborate closely with cross-functional teams to streamline operations.
+
+One of the key projects I contributed to was the migration of applications from virtual machines to a serverless architecture. I developed reusable Terraform modules for provisioning infrastructure involving ECS, S3, CloudFront, and other AWS services.
+
+Overall, I’m passionate about building efficient DevOps workflows that enable faster, more reliable, and secure deployments.
+
